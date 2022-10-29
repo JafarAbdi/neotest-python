@@ -115,5 +115,5 @@ class PytestNeotestAdapter(NeotestAdapter):
 
         import pytest
 
-        pytest.main(args=args, plugins=[NeotestResultCollector])
+        pytest.main(args=args[:-1] + ["--", args[-1]], plugins=[NeotestResultCollector])
         return results
